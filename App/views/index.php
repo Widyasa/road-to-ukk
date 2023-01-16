@@ -1,11 +1,12 @@
 <div class="mr-4 d-flex justify-content-end mt-5 mb-4">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Tambah
+    <button type="button" href="#" data-toggle="modal" data-target="#logoutModal">
+
+        tambah
     </button>
 </div>
 
 
-<div id="wrapper">
+<div id="wrapper" class="">
 
     <!-- Sidebar -->
     <!-- End of Sidebar -->
@@ -30,7 +31,7 @@
                         <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div class="table-responsive ">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
@@ -42,16 +43,16 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <?php $i = 1;?>
+                                <?php foreach ($data['siswa'] as $siswa) :?>
                                     <tr>
-                                        <?php $i = 1;?>
-                                        <?php foreach ($data['siswa'] as $siswa) :?>
                                         <td><?=$i++?></td>
                                         <td><?=$siswa['nama']?></td>
                                         <td><?=$siswa['kelas']?></td>
                                         <td><?=$siswa['jurusan']?></td>
                                         <td><?=$siswa['absen']?></td>
-                                        <?php endforeach;?>
                                     </tr>
+                                    <?php endforeach;?>
                                 </tbody>
 
                             </table>
@@ -78,21 +79,41 @@
 
 
 <!-- Logout Modal-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Siswa</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
+            <form action="<?= BASEURL ?>/home/store" method="post">
+                <div class="modal-body">
+
+                    <div class="input-grup mt-3">
+                        <label for="nama">nama</label>
+                        <input type="text" name="nama" placeholder="input nama">
+                    </div>
+                    <div class="input-grup mt-3">
+                        <label for="kelas">Kelas</label>
+                        <input type="number" name="kelas" placeholder="input kelas">
+                    </div>
+                    <div class="input-grup mt-3">
+                        <label for="jurusan">Jurusan</label>
+                        <input type="text" name="jurusan" placeholder="input jurusan">
+                    </div>
+                    <div class="input-grup mt-3">
+                        <label for="absen">Absen</label>
+                        <input type="number" name="absen" placeholder="input absen">
+                    </div>
+                </div>
+                 <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary"  data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" >tambah</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
