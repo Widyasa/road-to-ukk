@@ -9,10 +9,18 @@ class Home extends Controller{
         }
     }
     public function index(){
-        $data['title']="home";
-        $this->view('templates/header');
-        $this->view('index');
-        $this->view('templates/footer');
+        $data['title']="Home";
+        $data['siswa'] =$this->model('siswaModel')->selectAllSiswa();
+        $this->view('templates/header',$data);
+        $this->view('index',$data);
+        $this->view('templates/footer',$data);
+    }
+
+    public function store()
+    {
+        if ($this->model('siswaModel')->createSiswa($_POST)){
+            redirect('home/');
+        }
     }
     
 }
