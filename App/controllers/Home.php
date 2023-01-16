@@ -1,8 +1,18 @@
 <?php
 
-class Home{
-    public function index()
+class Home extends Controller{
+
+    public function __construct()
     {
-        echo "tania<3";
+        if(empty($_SESSION['username'])){
+            redirect('login/');
+        }
     }
+    public function index(){
+        $data['title']="home";
+        $this->view('templates/header');
+        $this->view('index');
+        $this->view('templates/footer');
+    }
+    
 }
