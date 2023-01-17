@@ -39,28 +39,22 @@
                                     <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Kelas</th>
-                                        <th>Jurusan</th>
-                                        <th>Absen</th>
+                                        <th>Nama Kelas</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php $i = 1;?>
-                                    <?php foreach ($data['siswa'] as $siswa) :?>
+                                    <?php foreach ($data['kelas'] as $kelas) :?>
                                         <tr>
                                             <td><?=$i++?></td>
-                                            <td><?=$siswa['nama']?></td>
-                                            <td><?=$siswa['kelas']?></td>
-                                            <td><?=$siswa['jurusan']?></td>
-                                            <td><?=$siswa['absen']?></td>
+                                            <td><?=$kelas['nama_kelas']?></td>
                                             <td class="d-flex flex-row ">
-                                                <button type="button"  class="btn btn-warning edit-modal" href="#" data-toggle="modal" data-target="#formModalEdit<?=$siswa['id']?>">
+                                                <button type="button"  class="btn btn-warning edit-modal" href="#" data-toggle="modal" data-target="#formModalEdit<?=$kelas['id_kelas']?>">
                                                     edit
                                                 </button>
-                                                <form action="<?=BASEURL?>/home/delete/<?=$siswa['id']?>" method="post">
-                                                    <button type="submit" class="btn btn-danger ml-3">
+                                                <form action="<?=BASEURL?>kelas/delete/<?=$kelas['id_kelas']?>" method="post">
+                                                    <button type="submit" class="btn btn-danger ml-3" onclick="return confirm('yakin mau hapus?')">
                                                         Hapus
                                                     </button>
                                                 </form>
@@ -103,25 +97,14 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form action="<?= BASEURL ?>/home/store" method="post">
+                <form action="<?= BASEURL ?>kelas/store" method="post">
                     <div class="modal-body">
 
                         <div class="input-grup mt-3">
-                            <label for="nama">nama</label>
-                            <input type="text" name="nama" placeholder="input nama" required>
+                            <label for="nama_kelas">nama Kelas</label>
+                            <input type="text" name="nama_kelas" placeholder="input nama" required>
                         </div>
-                        <div class="input-grup mt-3">
-                            <label for="kelas">Kelas</label>
-                            <input type="number" name="kelas" placeholder="input kelas" required>
-                        </div>
-                        <div class="input-grup mt-3">
-                            <label for="jurusan">Jurusan</label>
-                            <input type="text" name="jurusan" placeholder="input jurusan" required>
-                        </div>
-                        <div class="input-grup mt-3">
-                            <label for="absen">Absen</label>
-                            <input type="number" name="absen" placeholder="input absen" required>
-                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="reset" class="btn btn-secondary"  data-dismiss="modal">Cancel</button>
@@ -132,8 +115,8 @@
         </div>
     </div>
 
-    <?php foreach ($data['siswa'] as $siswa) : ?>
-        <div class="modal fade" id="formModalEdit<?=$siswa['id']?>" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    <?php foreach ($data['kelas'] as $kelas) : ?>
+        <div class="modal fade" id="formModalEdit<?=$kelas['id_kelas']?>" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -143,30 +126,18 @@
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <form action="<?= BASEURL ?>/home/edit" method="post">
-                        <input type="hidden" value="<?=$siswa['id']?>" name="id">
+                    <form action="<?= BASEURL ?>kelas/edit" method="post">
+                        <input type="hidden" value="<?=$kelas['id_kelas']?>" name="id_kelas">
                         <div class="modal-body">
 
                             <div class="input-grup mt-3">
-                                <label for="nama">nama</label>
-                                <input type="text" name="nama" value="<?=$siswa['nama']?>" required>
-                            </div>
-                            <div class="input-grup mt-3">
-                                <label for="kelas">Kelas</label>
-                                <input type="number" name="kelas" value="<?=$siswa['kelas']?>" required>
-                            </div>
-                            <div class="input-grup mt-3">
-                                <label for="jurusan">Jurusan</label>
-                                <input type="text" name="jurusan" value="<?=$siswa['jurusan']?>" required>
-                            </div>
-                            <div class="input-grup mt-3">
-                                <label for="absen">Absen</label>
-                                <input type="number" name="absen" value="<?=$siswa['absen']?>" required>
+                                <label for="nama_kelas">nama</label>
+                                <input type="text" name="nama_kelas" value="<?=$kelas['nama_kelas']?>" required>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="reset" class="btn btn-secondary"  data-dismiss="modal">Cancel</button>
-                            <button type="submit" value="submit" class="btn btn-primary" >tambah</button>
+                            <button type="submit" value="submit" class="btn btn-primary" >Edit</button>
                         </div>
                     </form>
                 </div>

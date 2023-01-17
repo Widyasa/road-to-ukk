@@ -21,7 +21,7 @@ class Login extends Controller{
         $loggedInUser = $this->model('Auth')->login($_POST);
         if($loggedInUser){
             $this->model('Auth')->createSession($loggedInUser);
-            header("Location:" . BASEURL . "/home/index");
+            header("Location:" . BASEURL . "home/index");
         } else {
             $data['title']='Login';
             $this->view('templates/header',$data);

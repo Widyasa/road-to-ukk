@@ -1,7 +1,8 @@
 <?php
 
 class siswaModel extends Controller{
-    private $table = 'siswa';
+    private $tablesiswa = 'siswa';
+    private $tablekelas = 'kelas';
     private $db;
 
     public function __construct()
@@ -11,14 +12,15 @@ class siswaModel extends Controller{
 
     public function selectAllSiswa()
     {
-        $query = "SELECT * FROM db_mvc.{$this->table}";
+        $query = "SELECT db_mvc.{$this->tablesiswa}.id, db_mvc.{$this->tablesiswa}.nama, db_mvc.{$this->tablesiswa}.id_kelas, db_mvc.{$this->tablekelas}.id_kelas, db_mvc.{$this->tablekelas}.nama_kelas, db_mvc.{$this->tablesiswa}.jurusan, db_mvc.{$this->tablesiswa}.absen FROM db_mvc.{$this->tablesiswa} INNER JOIN db_mvc.{$this->tablekelas} ON db_mvc.{$this->tablesiswa}.id_kelas = db_mvc.{$this->tablekelas}.id_kelas";
         $this->db->query($query);
         return $this->db->resultAll();
     }
 
     public function selectSiswaById($id)
     {
-        $query = "SELECT * FROM db_mvc.{$this->table} WHERE `id` =:id";
+        $query = "SELECT db_mvc.{$this->tablesiswa}.`id`, db_mvc.{$this->tablesiswa}.`nama`, db_mvc.{$this->tablesiswa}.`id_kelas`, db_mvc.{$this->tablekelas}.`id_kelas`, db_mvc.{$this->tablekelas}.`nama_kelas`, db_mvc.{$this->tablesiswa}.jurusan``, db_mvc.{$this->tablesiswa}.`absen` FROM db_mvc.{$this->tablesiswa} INNER JOIN db_mvc.{$this->tablekelas} ON db_mvc.{$this->tablesiswa}.id_kelas = db_mvc.{$this->tablekelas}.id_kelas WHERE db_mvc.{$this->tablesiswa}.`id` =:id";
+        $this->db->query($query);
         $this->db->bind('id', $id);
         $this->db->resultSingle();
     }

@@ -52,7 +52,7 @@
                                         <tr>
                                             <td><?=$i++?></td>
                                             <td><?=$siswa['nama']?></td>
-                                            <td><?=$siswa['kelas']?></td>
+                                            <td><?=$siswa['nama_kelas']?></td>
                                             <td><?=$siswa['jurusan']?></td>
                                             <td><?=$siswa['absen']?></td>
                                             <td class="d-flex flex-row ">
@@ -60,7 +60,7 @@
                                                     edit
                                                 </button>
                                                 <form action="<?=BASEURL?>/home/delete/<?=$siswa['id']?>" method="post">
-                                                    <button type="submit" class="btn btn-danger ml-3">
+                                                    <button type="submit" class="btn btn-danger ml-3" onclick="return confirm('yakin mau hapus?')">
                                                         Hapus
                                                     </button>
                                                 </form>
