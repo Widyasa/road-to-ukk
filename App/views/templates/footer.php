@@ -17,6 +17,7 @@
 <script src="<?= BASEURL; ?>/assets/js/demo/chart-area-demo.js"></script>
 <script src="<?= BASEURL; ?>/assets/js/demo/chart-pie-demo.js"></script>
 <script src="<?= BASEURL; ?>/assets/js/demo/datatables-demo.js"></script>
+<script src="<?= BASEURL; ?>/assets/js/script.js"></script>
 
 </body>
 

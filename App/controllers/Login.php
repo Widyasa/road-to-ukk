@@ -29,4 +29,11 @@ class Login extends Controller{
             $this->view('templates/footer',$data);
         }
     }
+
+    public function logout()
+    {
+        $_SESSION = array();
+        session_destroy();
+        redirect('login/');
+    }
 }

@@ -35,4 +35,30 @@ class siswaModel extends Controller{
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function editSiswa($data)
+    {
+        $query = "UPDATE db_mvc.{$this->table} SET `nama`=:nama, `kelas`=:kelas, `jurusan`=:jurusan, `absen`=:absen WHERE `id`=:id";
+        $this->db->query($query);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('kelas', $data['kelas']);
+        $this->db->bind('jurusan', $data['jurusan']);
+        $this->db->bind('absen', $data['absen']);
+        $this->db->bind('id', $data['id']);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function deleteSiswa($id)
+    {
+        $query = "DELETE FROM db_mvc.{$this->table} WHERE id =:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+
 }

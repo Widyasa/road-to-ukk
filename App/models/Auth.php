@@ -38,4 +38,22 @@ class Auth extends Controller{
         $_SESSION['username'] = $user['username'];
         $_SESSION['is_admin'] = $user['is_admin'] ? true: false;
     }
+
+    public function validateUsername($username)
+    {
+        if(empty($username)){
+            return "username kosong";
+        }elseif ($this->findUsernameByUsername($username)=== false){
+            return "username salah";
+        }
+    }
+
+    public function validatePassword($password)
+    {
+        if(empty($password)){
+            return "password kosong";
+        }elseif ($this->findUsernameByUsername($password)=== false){
+            return "password salah";
+        }
+    }
 }
