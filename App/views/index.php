@@ -112,7 +112,13 @@
                         </div>
                         <div class="input-grup mt-3">
                             <label for="kelas">Kelas</label>
-                            <input type="number" name="kelas" placeholder="input kelas" required>
+                                <select name="id_kelas" id="">
+                                    <?php foreach ($data['kelas'] as $kelas) :?>
+                                    <option value="<?=$kelas['id_kelas'];?>">
+                                        <?=$kelas['nama_kelas']?>
+                                    </option>
+                                    <?php endforeach;?>
+                                </select>
                         </div>
                         <div class="input-grup mt-3">
                             <label for="jurusan">Jurusan</label>
@@ -153,7 +159,13 @@
                             </div>
                             <div class="input-grup mt-3">
                                 <label for="kelas">Kelas</label>
-                                <input type="number" name="kelas" value="<?=$siswa['kelas']?>" required>
+                                <select name="id_kelas" id="">
+                                    <?php foreach ($data['kelas'] as $kelas) :?>
+                                        <option value="<?=$kelas['id_kelas'];?>">
+                                            <?=$kelas['nama_kelas']?>
+                                        </option>
+                                    <?php endforeach;?>
+                                </select>
                             </div>
                             <div class="input-grup mt-3">
                                 <label for="jurusan">Jurusan</label>

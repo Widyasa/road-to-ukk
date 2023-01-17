@@ -27,10 +27,10 @@ class siswaModel extends Controller{
 
     public function createSiswa($data)
     {
-        $query = "INSERT INTO db_mvc.{$this->table} (`nama`,`kelas`,`jurusan`,`absen`) VALUES (:nama,:kelas,:jurusan,:absen)";
+        $query = "INSERT INTO db_mvc.{$this->tablesiswa} (`nama`,`id_kelas`,`jurusan`,`absen`) VALUES (:nama,:id_kelas,:jurusan,:absen)";
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
-        $this->db->bind('kelas', $data['kelas']);
+        $this->db->bind('id_kelas', $data['id_kelas']);
         $this->db->bind('jurusan', $data['jurusan']);
         $this->db->bind('absen', $data['absen']);
 
@@ -40,10 +40,10 @@ class siswaModel extends Controller{
 
     public function editSiswa($data)
     {
-        $query = "UPDATE db_mvc.{$this->table} SET `nama`=:nama, `kelas`=:kelas, `jurusan`=:jurusan, `absen`=:absen WHERE `id`=:id";
+        $query = "UPDATE db_mvc.{$this->tablesiswa} SET `nama`=:nama, `id_kelas`=:id_kelas, `jurusan`=:jurusan, `absen`=:absen WHERE `id`=:id";
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
-        $this->db->bind('kelas', $data['kelas']);
+        $this->db->bind('id_kelas', $data['id_kelas']);
         $this->db->bind('jurusan', $data['jurusan']);
         $this->db->bind('absen', $data['absen']);
         $this->db->bind('id', $data['id']);
@@ -54,7 +54,7 @@ class siswaModel extends Controller{
 
     public function deleteSiswa($id)
     {
-        $query = "DELETE FROM db_mvc.{$this->table} WHERE id =:id";
+        $query = "DELETE FROM db_mvc.{$this->tablesiswa} WHERE id =:id";
         $this->db->query($query);
         $this->db->bind('id', $id);
 

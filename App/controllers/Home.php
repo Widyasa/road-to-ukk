@@ -11,6 +11,7 @@ class Home extends Controller{
     public function index(){
         $data['title']="Home";
         $data['siswa'] =$this->model('siswaModel')->selectAllSiswa();
+        $data['kelas'] =$this->model('kelasModel')->getAllKelas();
 //        $data['siswaId'] = $this->model('siswaModel')->selectSiswaById();
         $this->view('templates/header',$data);
         $this->view('index',$data);
