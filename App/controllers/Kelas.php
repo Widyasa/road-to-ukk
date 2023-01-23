@@ -13,6 +13,7 @@ class Kelas extends Controller{
         $data['title'] = 'kelas';
         $data['kelas'] = $this->model('kelasModel')->getAllKelas();
         $this->view('templates/header',$data);
+        $this->view('templates/navbar',$data);
         $this->view('kelas',$data);
         $this->view('templates/footer',$data);
     }
@@ -32,6 +33,7 @@ class Kelas extends Controller{
             $data['title'] = 'kelas';
             $data['kelas'] = $this->model('kelasModel')->getAllKelas();
             $this->view('templates/header',$data);
+            $this->view('templates/navbar',$data);
             $this->view('kelas',$data);
             $this->view('templates/footer',$data);
         }

@@ -14,6 +14,7 @@ class Home extends Controller{
         $data['kelas'] =$this->model('kelasModel')->getAllKelas();
 //        $data['siswaId'] = $this->model('siswaModel')->selectSiswaById();
         $this->view('templates/header',$data);
+        $this->view('templates/navbar',$data);
         $this->view('index',$data);
         $this->view('templates/footer',$data);
     }
@@ -34,6 +35,7 @@ class Home extends Controller{
             $data['siswa'] =$this->model('siswaModel')->selectAllSiswa();
             $data['kelas'] =$this->model('kelasModel')->getAllKelas();
             $this->view('templates/header',$data);
+            $this->view('templates/navbar',$data);
             $this->view('index',$data);
             $this->view('templates/footer',$data);
     }
