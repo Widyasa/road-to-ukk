@@ -35,4 +35,11 @@ class Jurusan extends Controller{
             $this->view('templates/footer',$data);
         }
     }
+
+    public function delete($id)
+    {
+        if ($this->model('jurusanModel')->deleteJurusan($id)>0){
+            redirect('jurusan');
+        }
+    }
 }

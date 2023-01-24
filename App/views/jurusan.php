@@ -53,7 +53,7 @@
                                                 <button type="button"  class="btn btn-warning edit-modal" href="#" data-toggle="modal" data-target="#formModalEdit<?=$jurusan['id_jurusan']?>">
                                                     edit
                                                 </button>
-                                                <form action="<?=BASEURL?>kelas/delete/<?=$jurusan['id_jurusan']?>" method="post">
+                                                <form action="<?=BASEURL?>jurusan/delete/<?=$jurusan['id_jurusan']?>" method="post">
                                                     <button type="submit" class="btn btn-danger ml-3" onclick="return confirm('yakin mau hapus?')">
                                                         Hapus
                                                     </button>
@@ -121,7 +121,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabel">Edit Jurusan</h5>
+                        <h5 class="modal-title" id="ModalLfabel">Edit Jurusan</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>

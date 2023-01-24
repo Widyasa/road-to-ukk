@@ -40,5 +40,13 @@ class jurusanModel extends Controller{
         $this->db->execute();
         return $this->db->rowCount();
     }
+    public function deleteJurusan($id)
+    {
+        $query = "CALL 	db_mvc.deleteDataJurusan(:id_jurusan)";
+        $this->db->query($query);
+        $this->db->bind(':id_jurusan', $id);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 
 }
