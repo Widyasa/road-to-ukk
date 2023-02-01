@@ -9,7 +9,7 @@ class Auth extends Controller{
         $this->db = new Database();
     }
 
-    public function findUsernameByUsername($username)
+    public function findUserByUsername($username)
     {
 
         $query = "SELECT * FROM db_mvc.{$this->table} WHERE `username` = :username";
@@ -26,7 +26,7 @@ class Auth extends Controller{
     public function login($data)
     {
         $username = htmlspecialchars($data['username']);
-        $row = $this->findUsernameByUsername($username);
+        $row = $this->findUserByUsername($username);
 
         if ($row === false) return false;
         return $data['password'] === $row['password'] ? $row : false;
@@ -43,7 +43,7 @@ class Auth extends Controller{
     {
         if(empty($username)){
             return "username kosong";
-        }elseif ($this->findUsernameByUsername($username)=== false){
+        }elseif ($this->findUserByUsername($username)=== false){
             return "username salah";
         }
     }
@@ -52,7 +52,7 @@ class Auth extends Controller{
     {
         if(empty($password)){
             return "password kosong";
-        }elseif ($this->findUsernameByUsername($password)=== false){
+        }elseif ($this->findUserByUsername($password)=== false){
             return "password salah";
         }
     }

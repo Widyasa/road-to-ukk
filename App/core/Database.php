@@ -40,10 +40,10 @@ class Database{
                     break;
                 default:
                     $type = PDO::PARAM_STR;
-                    break;
-            }
-        }
-        $this->stmt->bindValue($param, $value, $type);
+                            break;
+                    }
+                }
+                $this->stmt->bindValue($param, $value, $type);
     }
 
     public function execute()
